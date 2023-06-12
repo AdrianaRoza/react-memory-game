@@ -1,3 +1,4 @@
+import JogoDaMemoria from "./components/JogoDaMemoria"
 
 function App() {
   
@@ -5,7 +6,7 @@ function App() {
   return (
     
     <div className="App">
-      App
+      <JogoDaMemoria />
     </div>
   )
 }
