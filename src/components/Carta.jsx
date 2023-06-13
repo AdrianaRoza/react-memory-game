@@ -1,7 +1,7 @@
 
 const Carta = () => {
   return (
-    <div className="carta">Carta</div>
+    <div className="carta">carta</div>
   )
 }
 export default Carta
