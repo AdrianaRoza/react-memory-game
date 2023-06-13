@@ -1,19 +1,21 @@
-import Carta from "./Carta"
-import Placar from "./Placar"
+import { paresDeCartas } from "./constants/cartas"
+import Carta from "./Carta.jsx"
+import Placar from "./Placar.jsx"
 
- 
- const JogoDaMemoria = () => {
+const JogoDaMemoria = () => {
   return (
     <div className="jogo-da-memoria">
       <div className="jogo-da-memoria_conteudo">
         <h1>Jogo da Memória</h1>
         <Placar />
         <div className="jogo-da-memoria_cartas">
-          <Carta />
+          {paresDeCartas.map((carta) => (
+            <Carta key={carta.id} {...carta} />
+          ))}
         </div>
       </div>
     </div>
   )
-}
+} 
 export default JogoDaMemoria
 
