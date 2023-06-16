@@ -1,5 +1,5 @@
 
-const Carta = ({id, idDoPar, imagem}) => {
+export const Carta = ({id, idDoPar, imagem}) => {
   return (
     
     <button id={id} className="carta">
@@ -12,4 +12,4 @@ const Carta = ({id, idDoPar, imagem}) => {
     </button>
   )
 }
-export default Carta
+

@@ -1,6 +1,6 @@
 import classNames from "classnames"
 
-const Resultado = () => {
+export const Resultado = () => {
 
   const cn = classNames ("resultado", {
     "resultado--aberto": false
@@ -35,4 +35,3 @@ const Resultado = () => {
     </div>
   )
 }
-export default Resultado
