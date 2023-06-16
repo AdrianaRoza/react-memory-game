@@ -1,6 +1,7 @@
 import { paresDeCartas } from "./constants/cartas"
 import Carta from "./Carta.jsx"
 import Placar from "./Placar.jsx"
+import Resultado from "./Resultado"
 
 const JogoDaMemoria = () => {
   return (
@@ -14,6 +15,7 @@ const JogoDaMemoria = () => {
           ))}
         </div>
       </div>
+      <Resultado />
     </div>
   )
 } 
