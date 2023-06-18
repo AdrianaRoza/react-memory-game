@@ -8,7 +8,7 @@ const imagens = [
   "vitejs.png",
 ];
 
-const cartasUnicas = imagens.map((imagem, idDoPar) => ({
+ export const cartasUnicas = imagens.map((imagem, idDoPar) => ({
     idDoPar,
     imagem,
 }));
