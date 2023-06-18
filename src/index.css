@@ -110,7 +110,7 @@ background-color: #bbb;
   transform: rotateY(180deg);
 }
 
-.carta:hover .carta_conteudo {
+.carta--virada .carta_conteudo {
   transform: rotateY(180deg);
 }
 
