@@ -104,6 +104,9 @@ body {
 
 .carta_frente {
 background-color: #bbb;
+background-image: url("/textura.png");
+background-position: center;
+background-size: 170%;
 }
 
 .carta_costas {
