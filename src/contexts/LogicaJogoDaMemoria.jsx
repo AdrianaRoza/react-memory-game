@@ -1,4 +1,5 @@
 import { createContext, useState } from "react"
+import { paresDeCartas } from "../constants/cartas"
 
 export const LogicaJogoDaMemoriaContext = createContext()
 
@@ -14,6 +15,20 @@ export const LogicaJogoDaMemoriaProvider = ({ children }) => {
         definirQuantidadeDeCartasViradas((quantidade) => quantidade + 1)
     }
 
+    const incrementarPontos = () => {
+        definirQuantidadeDePontos(pontos => pontos + 5)
+    }
+
+    const iniciarJogo = () => {
+        definirCartas(paresDeCartas)
+    }
+
+    const compararCartas = ([id1, id2]) => {
+        const idPar1 = cartas.find(({ id }) => id === id1)?.idDoPar
+        const idPar2 = cartas.find(({ id }) => id === id2)?.idDoPar
+        return idPar1 === idPar2
+    }
+
     const virarCarta = ({ id,idDoPar }) => {
         incrementarQuantidadeDeCartasViradas()
 
@@ -24,12 +39,19 @@ export const LogicaJogoDaMemoriaProvider = ({ children }) => {
           return
         }
         if (idsDasCartasViradas.length == 0) {
-            return definirIdDasCartasViradas([id])
+          return definirIdDasCartasViradas([id])
+        }
+
+        const ids = [idsDasCartasViradas[0], id]
+        definirIdDasCartasViradas(ids)
+
+        const cartasIguais = compararCartas(ids)
+        if (cartasIguais) {
+            incrementarPontos()
+            definirIdsDosParesEncontrados((ids) => [...ids, idDoPar])
         }
         
-        definirIdDasCartasViradas((ids) => [ids[0], id])
-        
-        const tempo = 2000;
+        const tempo = cartasIguais ? 0 : 2000;
 
         setTimeout(() => {
           definirIdDasCartasViradas([])
@@ -41,6 +63,7 @@ export const LogicaJogoDaMemoriaProvider = ({ children }) => {
         quantidadeDeCartasViradas,
         quantidadeDePontos,
 
+        iniciarJogo,
         virarCarta,
 
         idsDasCartasViradas,
